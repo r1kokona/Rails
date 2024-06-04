@@ -1,1 +1,1 @@
-puts 'Hello, Rails'
+puts 'Hello, Rails!'
