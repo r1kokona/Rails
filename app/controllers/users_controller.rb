@@ -27,7 +27,12 @@ class UsersController < ApplicationController
             render :edit, status: :unprocessable_entity
         end
     end
-    
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+
+        redirect_to root_path, status: :see_other
+    end
     private
         def users_params
             params.require(:user).permit(:name)
