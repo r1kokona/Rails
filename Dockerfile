@@ -22,7 +22,8 @@ RUN apt-get update -qq && \
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
+RUN bundle config set frozen false && \
+    bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
@@ -43,6 +44,8 @@ FROM base
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl default-mysql-client libvips && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs chromium --fix-missing
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
