@@ -23,11 +23,15 @@ services:
       - db
       - chromium
     environment:
-      CHROMIUM_REMOTE_URL: http://chromium:4444/wd/hub
+      SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
 
   chromium:
     image: linuxserver/chromium
 
+  chrome:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
 volumes:
   db-data:
   bundle:
