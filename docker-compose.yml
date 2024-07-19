@@ -24,6 +24,7 @@ services:
       - chromium
     environment:
       CHROMIUM_REMOTE_URL: http://chromium:4444/wd/hub
+    user: "rails"
 
   chromium:
     image: linuxserver/chromium
