@@ -279,6 +279,7 @@ DEPENDENCIES
   mysql2 (~> 0.5)
   pry-rails
   puma (>= 5.0)
+  racc (= 1.8.0)
   rails (~> 7.1.0)
   rspec-rails (~> 4.0.1)
   selenium-webdriver
