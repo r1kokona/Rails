@@ -28,7 +28,7 @@ services:
     image: linuxserver/chromium
 
   chrome:
-    image: selenium/standalone-chrome
+    image: seleniarm/standalone-chromium
     ports:
       - "4444:4444"
 volumes:
