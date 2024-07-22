@@ -16,7 +16,6 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/rails
-      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
@@ -24,10 +23,10 @@ services:
       - chromium
     environment:
       CHROMIUM_REMOTE_URL: http://chromium:4444/wd/hub
+    user: "rails"
 
   chromium:
     image: linuxserver/chromium
 
 volumes:
   db-data:
-  bundle:
